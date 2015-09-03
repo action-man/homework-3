@@ -1,0 +1,64 @@
+/*--------------------------------------------------*\
+  =Mixins
+\*--------------------------------------------------*/
+
+
+
+/**
+ * Sprite
+ */
+
+@mixin sprite-width($sprite) {
+  width: map-get($sprite, 'width');
+}
+
+@mixin sprite-height($sprite) {
+  height: map-get($sprite, 'height');
+}
+
+@mixin sprite-position($sprite) {
+  background-position: map-get($sprite, 'offset-x') map-get($sprite, 'offset-y');
+}
+
+@mixin sprite-image($sprite) {
+  background-image: url('../images/' + map-get($sprite, 'image'));
+}
+
+@mixin sprite($sprite) {
+  @include sprite-image($sprite);
+  @include sprite-position($sprite);
+  @include sprite-width($sprite);
+  @include sprite-height($sprite);
+}
+
+
+
+/**
+ * Pseudo elements
+ */
+
+@mixin p-el($el, $el-width: auto, $el-height: auto) {
+
+  @if $el == "before" or $el == "after" {
+
+    &:#{$el} {
+      @extend %pseudos;
+
+      @if $el-width != auto {
+        width: $el-width;
+      }
+
+      @if $el-height != auto {
+        height: $el-height;
+      }
+
+      @content;
+    }
+
+  }
+
+  @else {
+    @warn "`#{$el}` is not a valid pseudo-element.";
+  }
+
+}
