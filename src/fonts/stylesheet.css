@@ -250,3 +250,12 @@
 
 }
 
+@font-face {
+    font-family: 'fira_sanslight';
+    src: url('firasans-light.eot');
+    src: url('firasans-light.eot?#iefix') format('embedded-opentype'),
+         url('firasans-light.woff') format('woff'),
+         url('firasans-light.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
