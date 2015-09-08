@@ -11,6 +11,11 @@ body {
 	font-family: 'robotolight';
 	background: url(../images/site-bg.png) no-repeat top center;
 }
+
+h1, h2, h3, h4, h5, h6 {
+	font-weight: normal;
+}
+
 /* Прибиваем футер к низу */
 .wrapper{
 	position: relative;
