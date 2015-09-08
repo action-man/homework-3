@@ -12,7 +12,7 @@ html, body {
 body {
 	font-size: 100%;
 	font-family: 'robotolight';
-	background: url(/images/site-bg.png) no-repeat top center;
+	background: url(../images/site-bg.png) no-repeat top center;
 }
 /* Прибиваем футер к низу */
 .wrapper{
@@ -150,7 +150,7 @@ body {
 	text-align: center;
 }
 .nav-panel__section {
-	background: url(/images/nav-panel__section-elem2.png)no-repeat 0 0;
+	background: url(../images/nav-panel__section-elem2.png) no-repeat 0 0;
 	margin-bottom: 30px;
 	padding: 0px 20px;
 		&:first-of-type { background: none; }
