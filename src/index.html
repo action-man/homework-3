@@ -15,6 +15,7 @@
 	<!-- CSS -->
 
 	<link rel="stylesheet" href="css/main.css">
+	<link rel="stylesheet" href="src/css/jquery-ui.css">
 	
 </head>
 <body>
@@ -60,17 +61,17 @@
 								<div id="uploadfile-img" class="fileupload-wrapper">
 									<h3 class="label">Исходное изображение</h3>
 									<label class="fileupload-lable">
-										<input id="" type="file" name="files[]" class="fileupload">
+										<input id="browse" type="file" name="files[]" class="fileupload">
 										<input id="fileurl" type="hidden" name="fileurl"></label>
-									<input id="" name="filename" placeholder="Image.jpg" disabled="" class="input"></div>
+									<input id="filelist" name="filename" placeholder="Image.jpg" disabled="" class="input"></div>
 							</div>
 							<div class="form-group">
 								<div id="uploadfile-mark" class="fileupload-wrapper">
 									<h3 class="label">Водяной знак</h3>
 									<label class="fileupload-lable">
-										<input id="" type="file" name="files[]" class="fileupload">
+										<input id="browse2" type="file" name="files[]" class="fileupload">
 										<input id="filemarkurl" type="hidden" name="filemarkurl"></label>
-									<input id="filename" name="filename" placeholder="Image.png" disabled="" class="input"></div>
+									<input id="filelist2" name="filename" placeholder="Image.png" disabled="" class="input"></div>
 							</div>
 						</form>
 					</div>
@@ -148,8 +149,16 @@
 		</div>
 	</footer>
 
-	<script src="js/libs.js"></script>
-	<script src="js/main.js"></script>
+	<script type="text/javascript" src="js/libs/jquery-1.11.3.js"></script>
+	<script type="text/javascript" src="js/libs/plupload.full.min.js"></script>
+	<script type="text/javascript" src="js/libs/jquery.plupload.queue.js"></script>
+	<script type="text/javascript" src="js/libs/jquery-ui.js"></script>
+	<script type="text/javascript" src="js/watarmak.js"></script>
+	<script type="text/javascript" src="js/spiner.js"></script>
+	<script type="text/javascript" src="js/drag.js"></script>
+	<script type="text/javascript" src="js/slider.js"></script>
+	<script type="text/javascript" src="js/main.js"></script>
+
 
 </body>
 </html>
