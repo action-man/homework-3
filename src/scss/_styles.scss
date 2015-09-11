@@ -12,6 +12,7 @@ body {
 	font-size: 100%;
 	font-family: 'robotolight';
 	background: url(../images/site-bg.png) no-repeat top center;
+	background-size: cover;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -79,11 +80,17 @@ h1, h2, h3, h4, h5, h6 {
 .like-outer {
 	width: 43px;
 	height: 41px;
-	@include sprite($s-ico-like);
-	background-repeat: $bg-repeat;
 	background-color: #d5d3d3;
 	position: absolute;
 	left: 43px;
+		&:before {
+			content: '';
+			@include sprite($s-ico-like);
+			background-repeat: $bg-repeat;
+			position: absolute;
+			top: 4px;
+			left: 8px;
+		}
 }
 .like__list {
 	list-style: none;
@@ -100,35 +107,62 @@ h1, h2, h3, h4, h5, h6 {
 	height: inherit;
 }
 .like__link-fb {
-	@include sprite($s-ico-fb);
-	background-repeat: $bg-repeat;
-		&:hover { @include sprite($s-ico-fb_hover); }
+	position: relative;
+		&:before {
+			content: '';
+			@include sprite($s-ico-fb);
+			background-repeat: $bg-repeat;
+			position: absolute;
+			top: 8px;
+			left: 12px;
+		}
+		&:hover:before { @include sprite($s-ico-fb_hover); }
 }
 
 .like__link-tw {
-	@include sprite($s-ico-tw);
-	background-repeat: $bg-repeat;
-		&:hover { @include sprite($s-ico-tw_hover); }
+	position: relative;
+		&:before {
+		content: '';
+		@include sprite($s-ico-tw);
+		background-repeat: $bg-repeat;
+		position: absolute;
+		top: 10px;
+		left: 6px;
+		}
+		&:hover:before { @include sprite($s-ico-tw_hover); }
 }
 
 .like__link-vk{
-	@include sprite($s-ico-vk);
-	background-repeat: $bg-repeat;
-		&:hover { @include sprite($s-ico-vk_hover); }
+	position: relative;
+		&:before {
+		content: '';
+		@include sprite($s-ico-vk);
+		background-repeat: $bg-repeat;
+		position: absolute;
+		top: 13px;
+		left: 4px;
+		}
+		&:hover:before { @include sprite($s-ico-vk_hover); }
 }
+
+.generator-img,
+.nav-panel {
+	display: table-cell;
+}
+
 
 /* Generator-img */
 .generator-img {
-	display: inline-block;
-	width: $main-width - 310px;
+	width: 650px;
 	padding: 0 25px 25px; 
 	background-color: #625c60;
 }
 .generator-img__title {
 	 font-family: 'robotothin';
 	color: $white;
-	margin-top: 10px;
+	margin-top: 18px;
 	margin-bottom: 55px;
+	font-size: 36px;
 }
 .generator-img-wrap {
 	height: 534px;
@@ -137,10 +171,8 @@ h1, h2, h3, h4, h5, h6 {
 
 /*Nav-panel*/
 .nav-panel {
-	display: inline-block;
-	width: $main-width - 700px;
+	width: 260px;
 	background: #f1f1f5;
-	padding: 0 0px 15px;
 	min-height: 651px;
 }
 .nav-panel__title {
@@ -148,12 +180,16 @@ h1, h2, h3, h4, h5, h6 {
 	font-size: 26px;
 	color: #2e3641;
 	text-align: center;
+	margin-bottom: 20px;
 }
 .nav-panel__section {
 	background: url(../images/nav-panel__section-elem2.png) no-repeat 0 0;
 	margin-bottom: 30px;
 	padding: 0px 20px;
 		&:first-of-type { background: none; }
+}
+.nav-panel__section-btn {
+	margin-bottom: 26px;
 }
 .form-group {
 	margin-top: 20px;
@@ -162,11 +198,16 @@ h1, h2, h3, h4, h5, h6 {
 .fileupload-wrapper {
 	width: 100%;
 	position: relative;
+	h3 {
+		margin-bottom: 6px;
+	}
 }
 .label {
 	font-family: 'robotolight';
 	color: #2e3641;
 	font-size: 14px;
+	margin-bottom: 28px;
+	margin-top: 15px;
 }
 .fileupload-lable {
     display: block;
@@ -174,10 +215,16 @@ h1, h2, h3, h4, h5, h6 {
     height: 28px;
     position: absolute;
     right: 0;
-    @include sprite($s-upload-icon);
-    background-repeat: $bg-repeat;
     background-color: #f97e76;
     @include border-radius (0 4px 4px 0);
+    	&:before {
+    		content: '';
+    		@include sprite($s-upload-icon);
+    		background-repeat: $bg-repeat;
+    		position: absolute;
+    		top: 5px;
+    		left: 10px;
+    	}
 }
 .fileupload {
     border: 0;
@@ -194,6 +241,7 @@ h1, h2, h3, h4, h5, h6 {
     width: 100%;
     height: 28px;
     color: #9eb2c0;
+    font-size: 12px;
     background-color: transparent;
     border: 1px solid #9eb2c0;
     @include border-radius (4px);
@@ -226,22 +274,29 @@ h1, h2, h3, h4, h5, h6 {
 /* Nav-panel__section-position */
 .nav-panel__section-position_point {
 	display: inline-block;
-	width: 101px;
-	@include border-radius (2px);
-	border: 1px solid #cbd4dd;
 }
 .nav-panel__section-position_list {
 	@extend .like__list;
-	height: 101px;
-	background-color: #9eb2c0;
+	width: 99px;
+	height: 99px;
+	font-size: 0;
+	border-radius: 4px;
+	overflow: hidden;
+	border: 1px solid #9eb2c0;
+	margin-right: -1px;
+	margin-bottom: -1px;
 }
 .nav-panel__section-position_item {
 	display: inline-block;
 	height: 33px;
 	width: 33px;
-	margin-right: -2px;
-	margin-top: -4px;
-		&:first-child{ margin-top: 0;}
+	margin-left: -1px;
+	margin-top: -1px;
+	border-left: 1px solid #9eb2c0;
+	border-top: 1px solid #9eb2c0;
+}
+.position-tittle {
+	margin-bottom: 32px;
 }
 
 .nav-panel__section-position-input {
@@ -265,12 +320,18 @@ input[type="radio"]:checked + label {
 	float: right;
 }
 .nav-panel__section-position_axis-el {
-	margin-top: 0;
+	margin-top: 12px;
+	margin-bottom: 0;
+	&:first-child {margin-top: 0; }
+	label { margin-right: 4px; vertical-align: -2px;}
 }
 .ui-spinner {
 	border: 1px solid #9eb2c0;
 	background: none;
 	overflow: visible;
+}
+.ui-spinner .ui-icon {
+	margin-top: -6px;
 }
 .ui-widget .ui-spinner-input {
 	width: 42px;
@@ -304,7 +365,7 @@ input[type="radio"]:checked + label {
 .ui-spinner-button .ui-icon-triangle-1-s {
 	@include sprite($s-ico-down);
 	background-repeat: $bg-repeat;
-
+	top: 15px;
 		&:hover{
 	@include sprite($s-ico-down_hover);
 	background-repeat: $bg-repeat;
@@ -319,13 +380,14 @@ input[type="radio"]:checked + label {
 	border: none;
 }
 .ui-slider .ui-slider-handle {
-	@include border-radius (50%);
+	@include border-radius (100%);
 	height: 22px;
 	width: 22px;
 	top: -10px;
 	background: #dbe1e8;
+	border: 0;
 	outline: none;
-	@include box-shadow (0px 2px 1px 0px rgba(0, 0, 0, .38));
+	@include box-shadow (0px 1px 1px 0px rgba(0, 0, 0, .38));
 }
 .ui-slider-handle {
 		&:before {
@@ -335,10 +397,9 @@ input[type="radio"]:checked + label {
 			background: #9eb2c0;
 			position: absolute;
 			border-radius: 50%;
-			top: 32%;
-			left: 32%;
+			top: 7px;
+			left: 7px;
 		}
-		&:hover { border: 1px solid #dbe1e8; }
 		&:hover.ui-slider-handle:before{
 				background: #f97e76;
 		}
@@ -349,7 +410,7 @@ input[type="radio"]:checked + label {
 
 /* Button */
 .nav-panel__section-btn-wrap {
-	padding-top: 30px;
+	padding-top: 65px;
 }
 .btn {
 	width: 99px;
@@ -399,9 +460,9 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e8756d', end
 .copyright {
 	font-size: 12px;
 	color: $white;
-	font-family: 'fira_sanslight';
+	//font-family: 'fira_sanslight';
 	text-align: center;
-	padding-top:44px;
+	padding-top:42px;
 }
 
 /* General Styles*/
