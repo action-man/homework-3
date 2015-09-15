@@ -164,10 +164,31 @@ h1, h2, h3, h4, h5, h6 {
 	margin-bottom: 55px;
 	font-size: 36px;
 }
-.generator-img-wrap {
-	height: 534px;
-	background-color: $white;
+.container-img {
+  float: right;
+  position: relative;
+  height: 550px;
+  width: 650px;
+  overflow: hidden;
+
+
+
 }
+.watermak {
+  position: absolute;
+  cursor:hand;
+  z-index: 100;
+
+}
+
+
+
+.watermak-img {
+  position:relative;
+  cursor:hand;
+  z-index: 100;
+}
+
 
 /*Nav-panel*/
 .nav-panel {

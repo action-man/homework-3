@@ -1,3 +1,4 @@
 project_files/
 node_modules/
 dist
+.idea

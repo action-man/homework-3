@@ -9,12 +9,12 @@ var watermak = (function (){
         $('#r-t').on('click', right_t);
         $('#c-t').on('click', center_t);
         $('#l-t').on('click', left_t);
-        $('#m-l').on('click', right_g);
+        $('#m-r').on('click', right_g);
         $('#m-c').on('click', center_g);
-        $('#m-r').on('click', left_g);
-        $('#b-l').on('click', right_b);
+        $('#m-l').on('click', left_g);
+        $('#b-r').on('click', right_b);
         $('#b-c').on('click', center_b);
-        $('#b-r').on('click', left_b);
+        $('#b-l').on('click', left_b);
 
     }
 

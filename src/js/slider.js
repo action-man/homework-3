@@ -14,6 +14,7 @@ var slider = (function (){
             step:0.1,
             slide: function (event, ui) {
                 $(".watermak-img").css('opacity',ui.values );
+
             }
         });
     };
