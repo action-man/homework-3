@@ -18,6 +18,7 @@ var paths = {
   // пути, по которым будут находиться собранные файлы
   build: {
     templates   : 'dist/',
+    php    : 'dist/php/',
     style  : 'dist/css/',
     js     : 'dist/js/',
     img    : 'dist/images/',
@@ -32,8 +33,9 @@ var paths = {
   // пути, по которым находятся исходники
   src: {
     templates   : ['src/*.html'],
+    php    : 'src/php/**/*.php',
     style  : ['src/scss/main.scss', 'src/scss/ie.scss'],
-    js     : ['src/js/libs.js', 'src/js/vendor.js', 'src/js/main.js'],
+    js     : ['src/js/libs.js', 'src/js/vendor.js', 'src/js/scripts.js', 'src/js/main.js'],
     img    : ['src/images/**/*.*', '!src/images/sprite/*.*'],
     sprite : 'src/images/sprite/*.*',
     fonts  : 'src/fonts/**/*.*',
@@ -43,6 +45,7 @@ var paths = {
   // пути к файлам, за изменениями которых будем следить
   watch: {
     templates   : 'src/*.html',
+    php    : 'src/php/**/*.php',
     style  : 'src/scss/**/*.scss',
     js     : 'src/js/**/*.js',
     img    : ['src/images/**/*.*', '!src/images/sprite/*.*'],
@@ -58,7 +61,13 @@ var paths = {
 
 gulp.task('templates', function() {
   return gulp.src(paths.src.templates)
-    .pipe(gulp.dest(paths.build.templates))
+    .pipe(gulp.dest(paths.build.templates));
+});
+
+
+gulp.task('php', function() {
+  return gulp.src(paths.src.php)
+    .pipe(gulp.dest(paths.build.php));
 });
 
 
@@ -128,6 +137,7 @@ gulp.task('clean', function () {
 
 gulp.task('watch', function() {
   gulp.watch([paths.watch.templates], ['templates']);
+  gulp.watch([paths.watch.php], ['php']);
   gulp.watch([paths.watch.style], ['styles']);
   gulp.watch([paths.watch.js], ['js']);
   gulp.watch([paths.watch.img], ['img']);
@@ -139,6 +149,7 @@ gulp.task('watch', function() {
 
 gulp.task('build', [
   'templates',
+  'php',
   'styles',
   'js',
   'img',

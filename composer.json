@@ -1,0 +1,12 @@
+{
+    "name": "Toxa/hw3.dev",
+    "authors": [
+        {
+            "name": "Anton Leonov",
+            "email": "something.there32@gmail.com"
+        }
+    ],
+    "require": {
+        "sybio/image-workshop": "~2.0"
+    }
+}
